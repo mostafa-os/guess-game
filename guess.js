@@ -134,12 +134,12 @@ function handleGuesses() {
     currentTry++;
 
     let nextDiv = document.querySelector(`.try-${currentTry}`);
+    Array.from(nextDiv.children).forEach((input) => {
+      input.disabled = false;
+    });
     if (nextDiv) {
       nextDiv.classList.remove("disabled-input");
       nextDiv.children[1].focus();
-      Array.from(nextDiv.children).forEach((input) => {
-        input.disabled = false;
-      });
     } else {
       // Disabled guess button
       guessButton.disabled = true;
