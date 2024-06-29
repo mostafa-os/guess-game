@@ -134,10 +134,10 @@ function handleGuesses() {
     currentTry++;
 
     let nextDiv = document.querySelector(`.try-${currentTry}`);
-    Array.from(nextDiv.children).forEach((input) => {
-      input.disabled = false;
-    });
     if (nextDiv) {
+      Array.from(nextDiv.children).forEach((input) => {
+        input.disabled = false;
+      });
       nextDiv.classList.remove("disabled-input");
       nextDiv.children[1].focus();
     } else {
@@ -170,6 +170,7 @@ function getHint() {
 
     if (indexToFill !== -1) {
       randomInput.value = [...wordToGuess][indexToFill].toUpperCase();
+      randomInput.classList.add("yes-in-place");
     }
   }
 }
